@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <settings xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0  http://maven.apache.org/xsd/settings-1.0.0.xsd">
-    <% if @servers_data.length !=0 %>
+  <% if @servers_data.length !=0 %>
     <servers>
-    <% @servers_data.each do |server| %>
+      <% @servers_data.each do |server| %>
         <server>
-            <id><%= server['id'] %></id>
-            <username><%= server['login'] %></username>
-            <password><%= server['pwd'] %></password>
+          <id><%= server['id'] %></id>
+          <username><%= server['login'] %></username>
+          <password><%= server['pwd'] %></password>
         </server>
-    <% end %>
+      <% end %>
     </servers>
-    <% end  %>
-    <interactiveMode>false</interactiveMode>
-    <mirrors>
-        <mirror>
-            <id>radiohead</id>
-            <name>CNAF maven mirror</name>
-            <url>http://radiohead.cnaf.infn.it:8081/nexus/content/groups/public</url>
-            <mirrorOf>*</mirrorOf>
-        </mirror>
-    </mirrors>
-    <profiles>
+  <% end  %>
+  <interactiveMode>false</interactiveMode>
+  <mirrors>
+    <mirror>
+      <id>radiohead</id>
+      <name>CNAF maven mirror</name>
+      <url>http://radiohead.cnaf.infn.it:8081/nexus/content/groups/public</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+  <profiles>
     <profile>
       <id>nexus</id>
       <repositories>
@@ -32,8 +32,8 @@
         </repository>
       </repositories>
     </profile>
-    </profiles>
-    <activeProfiles>
-        <activeProfile>nexus</activeProfile>
-    </activeProfiles>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>nexus</activeProfile>
+  </activeProfiles>
 </settings>

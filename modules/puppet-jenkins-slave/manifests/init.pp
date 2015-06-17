@@ -1,7 +1,7 @@
 # == Class: puppet-jenkins-slave
 #
 # Set up a node as a Jenkins slave.
-# 
+#
 # === Parameters
 #
 #
@@ -10,7 +10,7 @@
 #   The default (empty list) produce a configuration file (settings.xml) without any "server" tag.
 #   Parameters are passed in as a list of hashes.
 #   "id" is the id of the maven repo where artifacts must be uploaded.
-#   "login" and "pwd" needed for accessing the remote server. 
+#   "login" and "pwd" needed for accessing the remote server.
 #
 #
 # === Examples
@@ -29,18 +29,18 @@ class puppet-jenkins-slave ($maven_servers_data=[], $java_version=6) {
   include puppet-emi3-release
   require puppet-docker
   require puppet-maven-repo
-  
+
   case $java_version {
     6: { $java_package_name='java-1.6.0-openjdk-devel' $java_home='/usr/lib/jvm/java-1.6.0-openjdk.x86_64'}
     7: { $java_package_name='java-1.7.0-openjdk-devel' $java_home='/usr/lib/jvm/java-1.7.0-openjdk.x86_64'}
+    8: { $java_package_name='java-1.8.0-openjdk-devel' $java_home='/usr/lib/jvm/java-1.8.0-openjdk.x86_64'}
     default: { fail('Unsupported Java version: $java_version') }
   }
 
-  
   if $lsbmajdistrelease == 6 {
     require puppet-openstack-havana-repo
   }
-  
+
   class { 'maven-settings':
     servers_data => $maven_servers_data
   }
@@ -49,7 +49,7 @@ class puppet-jenkins-slave ($maven_servers_data=[], $java_version=6) {
     version => 'latest',
     package => $java_package_name
   }
-  
+
   file { 'java_home.sh':
     path => '/etc/profile.d/java_home.sh',
     owner => 'root',
@@ -61,18 +61,18 @@ class puppet-jenkins-slave ($maven_servers_data=[], $java_version=6) {
   User {
     managehome => true
   }
-  
+
   case $lsbmajdistrelease {
-    
+
     5: {
         user { 'jenkins':
           name => 'jenkins',
           ensure => 'present'
         }
       }
-      
+
     6: {
-    
+
         user { 'jenkins':
           name => 'jenkins',
           ensure => 'present',
