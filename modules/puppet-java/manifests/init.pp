@@ -13,11 +13,12 @@ class puppet-java ($java_version=8){
   }
 
   file { 'java_home.sh':
-    path => '/etc/profile.d/java_home.sh',
-    owner => 'root',
-    group => 'root',
-    mode => '0644',
-    content => template('puppet-java/java_home.sh.erb')
+    path    => '/etc/profile.d/java_home.sh',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template('puppet-java/java_home.sh.erb'),
+    require => Class['java']
   }
 
   file { 'java.conf':
@@ -25,7 +26,8 @@ class puppet-java ($java_version=8){
     owner => 'root',
     group => 'root',
     mode => '0644',
-    content => template('puppet-java/java_conf.erb')
+    content => template('puppet-java/java_conf.erb'),
+    require => Class['java']
   }
 
   file { 'update-alternatives-script.sh':
