@@ -34,12 +34,12 @@ class puppet-java ($java_version=8){
     owner   => 'root',
     group   => 'root',
     mode    => '0755',
-    content => template('puppet-java/update-alternatives.sh.erb')
+    content => template('puppet-java/update_alternatives.sh.erb')
   }
 
   exec {'run-update-alternatives':
     command => '/tmp/update-java-alternatives.sh',
-    require => File['update-alternatives-script.sh']
+    require => [ File['update-alternatives-script.sh'], Class['java'] ]
   }
 
 }
