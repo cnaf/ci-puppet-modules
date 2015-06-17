@@ -1,4 +1,4 @@
-class java ($java_version=8){
+class puppet-java ($java_version=8){
 
   case $java_version {
     6: { $java_package_name='java-1.6.0-openjdk-devel' $java_home='/usr/lib/jvm/java-1.6.0-openjdk.x86_64'}
