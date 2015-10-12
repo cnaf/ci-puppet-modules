@@ -27,13 +27,8 @@
 class puppet-jenkins-slave ($maven_servers_data=[], $java_version=8) {
 
   include puppet-emi3-release
-  require puppet-docker
   require puppet-maven-repo
-  require puppet-java
 
-  class { 'puppet-java':
-    java_version => $java_version
-  }
 
   if $lsbmajdistrelease == 6 {
     require puppet-openstack-havana-repo
@@ -114,4 +109,3 @@ class puppet-jenkins-slave ($maven_servers_data=[], $java_version=8) {
     }
   }
 }
-
