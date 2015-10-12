@@ -1,9 +1,10 @@
 class puppet-java ($java_version=8){
 
   case $java_version {
-    6: { $java_package_name='java-1.6.0-openjdk-devel' $java_home='/usr/lib/jvm/java-1.6.0-openjdk'}
-    7: { $java_package_name='java-1.7.0-openjdk-devel' $java_home='/usr/lib/jvm/java-1.7.0-openjdk'}
-    8: { $java_package_name='java-1.8.0-openjdk-devel' $java_home='/usr/lib/jvm/java-1.8.0-openjdk'}
+    6: { $java_package_name='java-1.6.0-openjdk-devel' $java_home='/usr/lib/jvm/jre-1.6.0-openjdk.x86_64', $javac_home='/usr/lib/jvm/java-1.6.0-openjdk.x86_64'}
+    7: { $java_package_name='java-1.7.0-openjdk-devel' $java_home='/usr/lib/jvm/jre-1.7.0-openjdk.x86_64', $javac_home='/usr/lib/jvm/java-1.7.0-openjdk.x86_64'}
+    8: { $java_package_name='java-1.8.0-openjdk-devel' $java_home='/usr/lib/jvm/jre-1.8.0-openjdk.x86_64', $javac_home='/usr/lib/jvm/java-1.8.0-openjdk.x86_64'}
+
     default: { fail('Unsupported Java version: $java_version') }
   }
 

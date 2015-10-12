@@ -3,9 +3,7 @@
 set -e
 
 java_home=<%= @java_home %>
+javac_home=<%= @javac_home %>
 
-java_alternative=$(update-alternatives --display java | grep '^/' | grep $java_home | sed 's/\(.*\) - .*/\1/')
-javac_alternative=$(update-alternatives --display javac | grep '^/' | grep $java_home | sed 's/\(.*\) - .*/\1/')
-
-update-alternatives --set javac ${javac_alternative}
-update-alternatives --set java ${java_alternative}
+update-alternatives --set java  ${java_home}/bin/java
+update-alternatives --set javac ${javac_home}/bin/javac
