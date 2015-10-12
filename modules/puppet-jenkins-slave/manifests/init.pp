@@ -24,7 +24,7 @@
 #   }
 
 
-class puppet-jenkins-slave ($maven_servers_data=[], $java_version=6) {
+class puppet-jenkins-slave ($maven_servers_data=[], $java_version=8) {
 
   include puppet-emi3-release
   require puppet-docker
