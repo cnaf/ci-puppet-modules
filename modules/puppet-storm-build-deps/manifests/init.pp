@@ -16,8 +16,7 @@ class puppet-storm-build-deps {
   require puppet-gpfs-repo
 
   /* StoRM XML rpc build requires svn */
-  package { "install-svn":
-    name   => 'svn',
+  package { "subversion":
     ensure => latest
   }
 
