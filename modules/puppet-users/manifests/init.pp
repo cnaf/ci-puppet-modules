@@ -28,6 +28,12 @@ class puppet-users{
          groups => ['wheel']
   }
 
+  user { 'caberletti':
+    name => 'caberletti',
+         ensure => 'present',
+         groups => ['wheel']
+  }
+
   user { 'giaco':
     name   => 'giaco',
            ensure => 'present',
@@ -84,6 +90,14 @@ class puppet-users{
            key => 'AAAAB3NzaC1kc3MAAACBALP3Xp+9FgbFyg6BPjXwZmvjnRnuxgCKEtl0q8yfQYS2MP7czWFhsPvRwbv6GyHKg01p+E+diP4FSbu/DWeGJKMp5GPLp65v+ElApiDfGvYrUmxjvCQpj19l2I+GyRptx1ELDDojXMxN6tye2Nyfg40Xo2sZ0VBjmR3L+pwlZ0KHAAAAFQC7fZBIObRInGoOKegAdzUUmiKpHQAAAIEAiyOS8WK8pF1dLVxz7bkEqFTIriLrjW/0pR16trCVM8ubVt/3jfvdtE3mur6qcnAcmNwwTalD9AdYRx21ZrdYrsiOKk13QBL+M2T7WYJPM0NNorUJBd9u8nKNYQS+VHTIFo0iKCdqunCM9NNbnonawn/jKwgDEDDcMC+/lfg/qDsAAACAEAaPY+6z5/eHlnEgJywFsf1ReWcypLWJaCRnyO8Gj628XUO0VWKV8dGsNyvePrhDYcceX+u66J2SND6NbECUx8yM4DrnsWz+LcIOyeluR1U0K71RGC2x7KTpa2ci3nztpVSEFqDylAzxrfb0FgVPajQueczVJI2rRib5DVaRjGY=',
            type => 'ssh-dss',
            require => User['dallatorre']
+  }
+
+  ssh_authorized_key { 'caberletti-key':
+    ensure => 'present',
+           user => 'caberletti',
+           key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDQtaZu+ACE106jAOQATBKa3imKb4f8wFdIaZbKDmLu8QpLHhv32U6Ujx0Am0G4ebfHzZE8QMMrSPQeXmt3SrSYa5MbKIXUqwim943LKXwM6kVBYUxaO8jRiXybV/g/LBZh+S0ieSpXS671SBAtz+b73wVZogMZ/Ht4AIaoppC8PKr6mkcLeIqxAsYDS9yM9UAXxscol7z5UyHOALShwv/jcGzJcPjQ3fbBXacNEr+7jwHInSq8HuI5rWIb9AWhQXVVFgJci2+7/M479cdfO7KA5sdDr3ukFSYZMsf8KetEB7mKKwu9KP2QMZ/v5OldHlHH5u+RlkQb5QiGz+FlyK1H',
+           type => 'ssh-dss',
+           require => User['caberletti']
   }
 
   ssh_authorized_key { 'giaco-key':
