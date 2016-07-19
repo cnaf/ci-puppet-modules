@@ -1,2 +1,0 @@
-class centos_utils {
-}
