@@ -1,0 +1,4 @@
+.project
+.settings/
+.sonar/
+*.md.html
