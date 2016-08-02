@@ -17,7 +17,7 @@ class java ($java_version = 8) {
     }
 
     default : {
-      fail('Unsupported Java version: $java_version')
+      fail("Unsupported Java version: ${java_version}")
     }
   }
 
