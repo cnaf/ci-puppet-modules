@@ -1,4 +1,4 @@
-class voms_repos ($repo_scope = 'develop') {
+class voms_repos ($repo_scope = 'develop',) {
   include emi3_release
   include egi_trust_anchors
   include test_ca
@@ -24,14 +24,14 @@ class voms_repos ($repo_scope = 'develop') {
   }
 
   file { 'voms-devel.repo':
-    path   => '/etc/yum.repos.d/voms-devel.repo',
     ensure => file,
-    source => $voms_repo_file
+    path   => '/etc/yum.repos.d/voms-devel.repo',
+    source => $voms_repo_file,
   }
 
   file { 'voms-devel_src.repo':
-    path   => '/etc/yum.repos.d/voms-devel_src.repo',
     ensure => file,
-    source => $voms_repo_file_src
+    path   => '/etc/yum.repos.d/voms-devel_src.repo',
+    source => $voms_repo_file_src,
   }
 }

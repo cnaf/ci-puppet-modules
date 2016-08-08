@@ -3,14 +3,14 @@ class yum_utils {
 
   package { 'yum-utils':
     ensure  => present,
-    require => Class['emi3_release']
+    require => Class['emi3_release'],
   }
 
   define builddep {
     Exec {
-      path => '/bin:/sbin:/usr/bin:/usr/sbin' }
+      path => '/bin:/sbin:/usr/bin:/usr/sbin', }
 
-    exec { "yum-builddep-${title}": command => "yum-builddep -y ${title}" }
+    exec { "yum-builddep-${title}": command => "yum-builddep -y ${title}", }
   }
 }
 

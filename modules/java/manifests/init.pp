@@ -1,4 +1,4 @@
-class java ($java_version = 8) {
+class java ($java_version = 8,) {
   case $java_version {
     6       : {
       $java_package_name = 'java-1.6.0-openjdk-devel'
@@ -32,7 +32,7 @@ class java ($java_version = 8) {
     group   => 'root',
     mode    => '0644',
     content => template('java/java_home.sh.erb'),
-    require => Class['java']
+    require => Class['java'],
   }
 
   file { 'java.conf':
@@ -41,7 +41,7 @@ class java ($java_version = 8) {
     group   => 'root',
     mode    => '0644',
     content => template('java/java_conf.erb'),
-    require => Class['java']
+    require => Class['java'],
   }
 
   file { 'update-alternatives-script.sh':
@@ -50,12 +50,12 @@ class java ($java_version = 8) {
     owner   => 'root',
     group   => 'root',
     mode    => '0755',
-    content => template('java/update_alternatives.sh.erb')
+    content => template('java/update_alternatives.sh.erb'),
   }
 
   exec { 'run-update-alternatives':
     command => '/tmp/update-java-alternatives.sh',
-    require => [File['update-alternatives-script.sh'], Class['java']]
+    require => [File['update-alternatives-script.sh'], Class['java']],
   }
 
 }

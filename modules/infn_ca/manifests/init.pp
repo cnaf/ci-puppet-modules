@@ -5,7 +5,7 @@ class infn_ca {
 
   package { $ca_packages:
     ensure  => latest,
-    require => Class['egi_trust_anchors']
+    require => Class['egi_trust_anchors'],
   }
 
 }

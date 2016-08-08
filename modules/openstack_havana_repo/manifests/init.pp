@@ -10,8 +10,8 @@ class openstack_havana_repo {
   }
 
   file { 'epel-openstack-havana.repo':
-    path   => '/etc/yum.repos.d/epel-openstack-havana.repo',
     ensure => file,
-    source => 'puppet:///modules/openstack_havana_repo/epel-openstack-havana.repo'
+    path   => '/etc/yum.repos.d/epel-openstack-havana.repo',
+    source => 'puppet:///modules/openstack_havana_repo/epel-openstack-havana.repo',
   }
 }

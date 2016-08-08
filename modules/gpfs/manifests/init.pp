@@ -8,6 +8,6 @@ class gpfs {
 
   file { '/etc/profile.d/gpfs_env.sh':
     content => 'export PATH=$PATH:/usr/lpp/mmfs/bin/',
-    require => Package['gpfs.base']
+    require => Package['gpfs.base'],
   }
 }

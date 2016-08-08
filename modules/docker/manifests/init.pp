@@ -5,16 +5,19 @@ class docker {
   }
 
   case $lsbmajdistrelease {
-    5 : {
+    5       : {
       warning('docker is not available on centos/SL 5!')
     }
-    6 : {
-      package { 'docker-io': ensure => latest } ->
+    6       : {
+      package { 'docker-io': ensure => latest, } ->
       service { 'docker': ensure => running, }
     }
-    7 : {
+    7       : {
       package { 'docker': ensure => latest, } ->
       service { 'docker': ensure => running, }
+    }
+    default : {
+      fail('Unsupported OS release for docker module.')
     }
   }
 }

@@ -27,14 +27,14 @@ define voms::client ($vo = $name, $servers = []) {
     mode    => '0755',
     recurse => true,
     purge   => true,
-    require => File['/etc/grid-security/vomsdir']
+    require => File['/etc/grid-security/vomsdir'],
   }
 
   # Set defaults for the rest of this scope.
   File {
     owner => root,
     group => root,
-    mode  => '0644'
+    mode  => '0644',
   }
 
   $yaml = inline_template('

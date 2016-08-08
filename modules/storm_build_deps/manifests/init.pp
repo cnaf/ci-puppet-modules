@@ -4,11 +4,11 @@ class storm_build_deps {
   require storm_repos
   require gpfs_repo
 
-  /* StoRM XML rpc build requires svn */
-  package { 'subversion': ensure => latest }
+  #  StoRM XML rpc build requires svn
+  package { 'subversion': ensure => latest, }
 
-  /* And readline devel */
-  package { 'readline-devel': ensure => latest }
+  #  And readline devel
+  package { 'readline-devel': ensure => latest, }
 
   $packages = [
     'storm-backend-server',

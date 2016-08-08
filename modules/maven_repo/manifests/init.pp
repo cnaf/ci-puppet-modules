@@ -5,13 +5,14 @@ class maven_repo {
   }
 
   case $lsbmajdistrelease {
-    5 : { $maven_repo = 'apache-maven-epel-5.repo' }
-    6 : { $maven_repo = 'apache-maven.repo' }
+    5       : { $maven_repo = 'apache-maven-epel-5.repo' }
+    6       : { $maven_repo = 'apache-maven.repo' }
+    default : { fail('Unsupported OS release') }
   }
 
   file { 'apache-maven.repo':
-    path   => '/etc/yum.repos.d/apache-maven.repo',
     ensure => file,
-    source => "puppet:///modules/maven_repo/${maven_repo}"
+    path   => '/etc/yum.repos.d/apache-maven.repo',
+    source => "puppet:///modules/maven_repo/${maven_repo}",
   }
 }

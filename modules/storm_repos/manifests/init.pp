@@ -1,4 +1,4 @@
-class storm_repos ($repo_scope = 'develop') {
+class storm_repos ($repo_scope = 'develop',) {
   include emi3_release
   include egi_trust_anchors
   include test_ca
@@ -24,14 +24,14 @@ class storm_repos ($repo_scope = 'develop') {
   }
 
   file { 'storm-devel.repo':
-    path   => '/etc/yum.repos.d/storm-devel.repo',
     ensure => file,
-    source => $storm_repo_file
+    path   => '/etc/yum.repos.d/storm-devel.repo',
+    source => $storm_repo_file,
   }
 
   file { 'storm-devel_src.repo':
-    path   => '/etc/yum.repos.d/storm-devel_src.repo',
     ensure => file,
-    source => $storm_repo_file_src
+    path   => '/etc/yum.repos.d/storm-devel_src.repo',
+    source => $storm_repo_file_src,
   }
 }

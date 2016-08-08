@@ -12,7 +12,7 @@ class voms::setup_clients_dir {
     group   => root,
     mode    => '0755',
     purge   => true,
-    recurse => true
+    recurse => true,
   }
 
   file { '/etc/vomses':
@@ -21,7 +21,7 @@ class voms::setup_clients_dir {
     group   => root,
     mode    => '0755',
     purge   => true,
-    recurse => true
+    recurse => true,
   }
 
 }
