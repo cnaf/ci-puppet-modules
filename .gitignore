@@ -1,0 +1,5 @@
+.project
+.settings/
+.sonar/
+sonar-project.properties
+*.md.html
