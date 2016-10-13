@@ -1,9 +1,9 @@
 {
-  "name": "puppet-java",
+  "name": "mwdevel-mwdevel_umd_repo",
   "version": "0.1.0",
-  "author": "puppet",
+  "author": "mwdevel",
   "summary": null,
-  "license": "Apache-2.0",
+  "license": "Apache 2.0",
   "source": "",
   "project_page": null,
   "issues_url": null,

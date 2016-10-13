@@ -1,4 +1,5 @@
-class java ($java_version = 8,) {
+class mwdevel_java_setup ($java_version = 8,) {
+
   case $java_version {
     6       : {
       $java_package_name = 'java-1.6.0-openjdk-devel'
@@ -21,7 +22,7 @@ class java ($java_version = 8,) {
     }
   }
 
-  class { 'java':
+  class { '::java':
     version => 'latest',
     package => $java_package_name,
   }
@@ -31,7 +32,7 @@ class java ($java_version = 8,) {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('java/java_home.sh.erb'),
+    content => template('mwdevel_java_setup/java_home.sh.erb'),
     require => Class['java'],
   }
 
@@ -40,7 +41,7 @@ class java ($java_version = 8,) {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('java/java_conf.erb'),
+    content => template('mwdevel_java_setup/java_conf.erb'),
     require => Class['java'],
   }
 
@@ -50,7 +51,7 @@ class java ($java_version = 8,) {
     owner   => 'root',
     group   => 'root',
     mode    => '0755',
-    content => template('java/update_alternatives.sh.erb'),
+    content => template('mwdevel_java_setup/update_alternatives.sh.erb'),
   }
 
   exec { 'run-update-alternatives':
