@@ -1,10 +1,7 @@
 class puppet-infn-ca {
-
   include puppet-egi-trust-anchors
 
-  $ca_packages = ["ca_INFN-CA-2006","ca_INFN-CA-2015"]
-
-  package { $ca_packages:
+  package { "ca_INFN-CA-*":
     ensure  => latest,
     require => Class['puppet-egi-trust-anchors']
   }
