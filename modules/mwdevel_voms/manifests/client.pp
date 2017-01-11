@@ -17,8 +17,10 @@
 # CERN IT/GT/DMS <it-dep-gt-dms@cern.ch>
 # CERN IT/PES/PS <it-dep-pes-ps@cern.ch>
 #
-define mwdevel_voms::client ($vo = $name, $servers = []) {
-  ensure_resource('class', 'voms::setup_clients_dir')
+define mwdevel_voms::client (
+  $vo      = $name,
+  $servers = []) {
+  ensure_resource('class', 'mwdevel_voms::setup_clients_dir')
 
   file { "/etc/grid-security/vomsdir/${vo}":
     ensure  => directory,
@@ -37,7 +39,7 @@ define mwdevel_voms::client ($vo = $name, $servers = []) {
     mode  => '0644',
   }
 
-  $yaml = inline_template('
+  $yaml     = inline_template('
 ---
 <% @servers.each do |s| -%>
 /etc/grid-security/vomsdir/<%= @vo %>/<%= s["server"] %>.lsc:

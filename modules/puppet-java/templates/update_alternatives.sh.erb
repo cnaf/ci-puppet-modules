@@ -1,9 +1,0 @@
-#!/bin/sh
-
-set -e
-
-java_home=<%= @java_home %>
-javac_home=<%= @javac_home %>
-
-update-alternatives --set java  ${java_home}/bin/java
-update-alternatives --set javac ${javac_home}/bin/javac

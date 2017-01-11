@@ -1,2 +1,0 @@
-class puppet-centos-utils {
-}
