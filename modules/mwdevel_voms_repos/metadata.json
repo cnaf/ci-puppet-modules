@@ -1,0 +1,14 @@
+{
+  "name": "mwdevel-mwdevel_voms_repos",
+  "version": "0.1.0",
+  "author": "mwdevel",
+  "summary": null,
+  "license": "Apache-2.0",
+  "source": "https://github.com/cnaf/ci-puppet-modules",
+  "project_page": "https://github.com/cnaf/ci-puppet-modules/projects",
+  "issues_url": "https://github.com/cnaf/ci-puppet-modules/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
