@@ -22,8 +22,7 @@ class mwdevel_base_build_env {
     'tar',
     'unzip',
     'which',
-    'xz',
-    'redhat-rpm-config']
+    'xz']
 
   $kernel_devel = ['kernel-devel', 'kernel-headers']
 
