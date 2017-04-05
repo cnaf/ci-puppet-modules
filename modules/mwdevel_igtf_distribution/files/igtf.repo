@@ -1,0 +1,7 @@
+[igtf]
+name=IGTF repo
+baseurl=https://dist.igtf.net/distribution/igtf/current/
+protect=1
+enabled=1
+priority=1
+gpgcheck=1
