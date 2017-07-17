@@ -14,5 +14,5 @@ class mwdevel_storm::test_clients {
     'dcache-srmclient',
     'git']
 
-  package { $packages: require => [Class['mwdevel_test_ca'], Class['mwdevel_test_vos'], Class['mwdevel_emi3_release']], }
+  package { $packages: require => [Class['mwdevel_test_ca'], Class['mwdevel_test_vos'], Class['mwdevel_umd_repo']], }
 }

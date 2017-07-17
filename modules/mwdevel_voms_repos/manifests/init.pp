@@ -1,5 +1,5 @@
 class mwdevel_voms_repos ($repo_scope = 'develop',) {
-  include mwdevel_emi3_release
+  include mwdevel_umd_repo
   include mwdevel_egi_trust_anchors
   include mwdevel_test_ca
 

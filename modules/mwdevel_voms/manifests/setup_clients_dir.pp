@@ -3,7 +3,7 @@
 # Install voms-clients package.
 #
 class mwdevel_voms::setup_clients_dir {
-  require mwdevel_emi3_release
+  require mwdevel_umd_repo
   require mwdevel_egi_trust_anchors
 
   file { '/etc/grid-security/vomsdir':

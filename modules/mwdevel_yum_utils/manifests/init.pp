@@ -1,9 +1,9 @@
 class mwdevel_yum_utils {
-  include mwdevel_emi3_release
+  include mwdevel_umd_repo
 
   package { 'yum-utils':
     ensure  => present,
-    require => Class['mwdevel_emi3_release'],
+    require => Class['mwdevel_umd_repo'],
   }
 
   define builddep {

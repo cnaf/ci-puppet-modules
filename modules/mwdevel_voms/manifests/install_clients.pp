@@ -4,7 +4,7 @@ class mwdevel_voms::install_clients {
   package { 'install-voms-clients3':
     ensure  => latest,
     name    => 'voms-clients3',
-    require => Class['mwdevel_emi3_release'],
+    require => Class['mwdevel_umd_repo'],
   }
 
 }

@@ -1,5 +1,5 @@
 class mwdevel_jenkins_slave ($maven_servers_data = [], $java_version = 8,) {
-  include mwdevel_emi3_release
+  include mwdevel_umd_repo
   require mwdevel_maven_repo
 
   if $lsbmajdistrelease == 6 {
