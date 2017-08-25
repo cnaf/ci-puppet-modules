@@ -1,8 +1,10 @@
-class mwdevel_jenkins_slave ($maven_servers_data = [], $java_version = 8,) {
+class mwdevel_jenkins_slave (
+  $maven_servers_data = [],
+  $java_version       = 8,) {
   include mwdevel_umd_repo
   require mwdevel_maven_repo
 
-  if $lsbmajdistrelease == 6 {
+  if $lsbmajdistrelease == '6' {
     require mwdevel_openstack_havana_repo
   }
 
@@ -14,14 +16,14 @@ class mwdevel_jenkins_slave ($maven_servers_data = [], $java_version = 8,) {
   class { 'mwdevel_jenkins_slave::maven_settings': servers_data => $maven_servers_data, }
 
   case $lsbmajdistrelease {
-    5       : {
+    '5'     : {
       user { $jenkins_user:
         ensure => present,
         name   => $jenkins_user,
       }
     }
 
-    6       : {
+    '6'     : {
       user { $jenkins_user:
         ensure => present,
         name   => $jenkins_user,
@@ -50,7 +52,7 @@ class mwdevel_jenkins_slave ($maven_servers_data = [], $java_version = 8,) {
 
   package { 'apache-maven': ensure => present, }
 
-  if $lsbmajdistrelease == 6 {
+  if $lsbmajdistrelease == '6' {
     package { 'yum-cron': ensure => present, }
 
     service { 'yum-cron':
@@ -59,7 +61,7 @@ class mwdevel_jenkins_slave ($maven_servers_data = [], $java_version = 8,) {
     }
   }
 
-  if $lsbmajdistrelease == 5 {
+  if $lsbmajdistrelease == '5' {
     package { 'yum-autoupdate': ensure => present, }
 
     service { 'yum':
@@ -68,7 +70,7 @@ class mwdevel_jenkins_slave ($maven_servers_data = [], $java_version = 8,) {
     }
   }
 
-  if $lsbmajdistrelease == 6 {
+  if $lsbmajdistrelease == '6' {
     package { 'python-novaclient': ensure => present, }
   }
 }

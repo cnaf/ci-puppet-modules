@@ -5,7 +5,7 @@ class mwdevel_openstack_havana_repo {
   }
 
   case $lsbmajdistrelease {
-    6       : { $is_redhat_6 = true }
+    '6'     : { $is_redhat_6 = true }
     default : { fail("Unrecognized scientific linux major version: ${lsbmajdistrelease}") }
   }
 

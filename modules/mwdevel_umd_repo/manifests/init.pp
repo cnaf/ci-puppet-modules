@@ -1,11 +1,12 @@
-class mwdevel_umd_repo ($umd_repo_version = 3,) {
+class mwdevel_umd_repo (
+  $umd_repo_version = 3,) {
   case $umd_repo_version {
     3       : {
       case $lsbmajdistrelease {
-        6       : {
-          $umd_repo = 'http://repository.egi.eu/sw/production/umd/3/sl6/x86_64/updates/umd-release-3.14.2-1.el6.noarch.rpm'
+        '6'     : {
+          $umd_repo             = 'http://repository.egi.eu/sw/production/umd/3/sl6/x86_64/updates/umd-release-3.14.2-1.el6.noarch.rpm'
           $umd_repo_install_cmd = "yum install -y ${umd_repo}"
-          $umd_repo_file = '/etc/yum.repos.d/UMD-3-base.repo'
+          $umd_repo_file        = '/etc/yum.repos.d/UMD-3-base.repo'
         }
         default : {
           fail('Unsupported platform for UMD-3')
@@ -14,16 +15,16 @@ class mwdevel_umd_repo ($umd_repo_version = 3,) {
     }
     4       : {
       case $lsbmajdistrelease {
-        6       : {
-          $umd_repo = 'http://repository.egi.eu/sw/production/umd/4/sl6/x86_64/updates/umd-release-4.1.1-1.el6.noarch.rpm'
+        '6'     : {
+          $umd_repo             = 'http://repository.egi.eu/sw/production/umd/4/sl6/x86_64/updates/umd-release-4.1.1-1.el6.noarch.rpm'
           $umd_repo_install_cmd = "yum install -y ${umd_repo}"
-          $umd_repo_file = '/etc/yum.repos.d/UMD-4-base.repo'
+          $umd_repo_file        = '/etc/yum.repos.d/UMD-4-base.repo'
         }
 
-        7       : {
-          $umd_repo = 'http://repository.egi.eu/sw/production/umd/4/centos7/x86_64/updates/umd-release-4.1.1-1.el7.noarch.rpm'
+        '7'     : {
+          $umd_repo             = 'http://repository.egi.eu/sw/production/umd/4/centos7/x86_64/updates/umd-release-4.1.1-1.el7.noarch.rpm'
           $umd_repo_install_cmd = "yum install -y ${umd_repo}"
-          $umd_repo_file = '/etc/yum.repos.d/UMD-4-base.repo'
+          $umd_repo_file        = '/etc/yum.repos.d/UMD-4-base.repo'
 
         }
         default : {

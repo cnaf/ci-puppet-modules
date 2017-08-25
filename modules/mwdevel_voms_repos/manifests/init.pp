@@ -1,4 +1,5 @@
-class mwdevel_voms_repos ($repo_scope = 'develop',) {
+class mwdevel_voms_repos (
+  $repo_scope = 'develop',) {
   include mwdevel_umd_repo
   include mwdevel_egi_trust_anchors
   include mwdevel_test_ca
@@ -9,12 +10,12 @@ class mwdevel_voms_repos ($repo_scope = 'develop',) {
   }
 
   case $lsbmajdistrelease {
-    5       : {
-      $voms_repo_file = "puppet:///modules/mwdevel_voms_repos/voms-${repo_scope}_sl5.repo"
+    '5'     : {
+      $voms_repo_file     = "puppet:///modules/mwdevel_voms_repos/voms-${repo_scope}_sl5.repo"
       $voms_repo_file_src = "puppet:///modules/mwdevel_voms_repos/voms-${repo_scope}_sl5_src.repo"
     }
-    6       : {
-      $voms_repo_file = "puppet:///modules/mwdevel_voms_repos/voms-${repo_scope}_sl6.repo"
+    '6'     : {
+      $voms_repo_file     = "puppet:///modules/mwdevel_voms_repos/voms-${repo_scope}_sl6.repo"
       $voms_repo_file_src = "puppet:///modules/mwdevel_voms_repos/voms-${repo_scope}_sl6_src.repo"
     }
 

@@ -3,7 +3,7 @@ class mwdevel_robot_framework {
 
   $pip = 'pip'
 
-  if $lsbmajdistrelease == 5 {
+  if $lsbmajdistrelease == '5' {
     $pip = 'pip2.6'
   }
 

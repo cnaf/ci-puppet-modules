@@ -1,4 +1,5 @@
-class mwdevel_storm_repos ($repo_scope = 'develop',) {
+class mwdevel_storm_repos (
+  $repo_scope = 'develop',) {
   include mwdevel_umd_repo
   include mwdevel_egi_trust_anchors
   include mwdevel_test_ca
@@ -9,12 +10,12 @@ class mwdevel_storm_repos ($repo_scope = 'develop',) {
   }
 
   case $lsbmajdistrelease {
-    5       : {
-      $storm_repo_file = "puppet:///modules/mwdevel_storm_repos/storm_${repo_scope}_sl5.repo"
+    '5'     : {
+      $storm_repo_file     = "puppet:///modules/mwdevel_storm_repos/storm_${repo_scope}_sl5.repo"
       $storm_repo_file_src = "puppet:///modules/mwdevel_storm_repos/storm_${repo_scope}_sl5_src.repo"
     }
-    6       : {
-      $storm_repo_file = "puppet:///modules/mwdevel_storm_repos/storm_${repo_scope}_sl6.repo"
+    '6'     : {
+      $storm_repo_file     = "puppet:///modules/mwdevel_storm_repos/storm_${repo_scope}_sl6.repo"
       $storm_repo_file_src = "puppet:///modules/mwdevel_storm_repos/storm_${repo_scope}_sl6_src.repo"
     }
 
