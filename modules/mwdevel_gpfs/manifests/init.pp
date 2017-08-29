@@ -2,7 +2,10 @@ class mwdevel_gpfs($version = "3.4.0-17") {
   require mwdevel_gpfs_repo
   require mwdevel_base_build_env
 
-  $gpfs_packages = ['gpfs.base', 'gpfs.docs', 'gpfs.gpl', 'gpfs.msg.en_US']
+  $gpfs_packages = $version ? {
+    "4.1.1-14", "4.2.0-3", "latest" => ['gpfs.base', 'gpfs.docs', 'gpfs.gpl', 'gpfs.msg.en_US', 'gpfs.gskit', 'gpfs.ext'],
+    default => ['gpfs.base', 'gpfs.docs', 'gpfs.gpl', 'gpfs.msg.en_US']
+  }
 
   package { $gpfs_packages: ensure => $version, }
 
