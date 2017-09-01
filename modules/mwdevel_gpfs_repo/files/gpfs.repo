@@ -1,6 +1,6 @@
 [GPFS] 
 name=GPFS
-baseurl=https://ci.cloud.cnaf.infn.it/job/multiversion_gpfs_repo/lastSuccessfulBuild/artifact/yum/
+baseurl=https://ci.cloud.cnaf.infn.it/job/repo_gpfs_latest/lastSuccessfulBuild/artifact/yum/
 protect=1
 enabled=1
 priority=1
