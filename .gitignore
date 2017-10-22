@@ -1,5 +1,6 @@
 .project
 .settings/
 .sonar/
-sonar-project.properties
+.scannerwork/
 *.md.html
+**/pkg/
