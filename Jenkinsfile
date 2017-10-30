@@ -38,6 +38,8 @@ pipeline {
           build_module('mwdevel_egi_trust_anchors')
           build_module('mwdevel_igtf_distribution')
           build_module('mwdevel_infn_ca')
+          build_module('mwdevel_python')
+          build_module('mwdevel_robot_framework')
           build_module('mwdevel_test_ca')
           build_module('mwdevel_test_ca_policies')
           build_module('mwdevel_users')

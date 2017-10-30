@@ -1,4 +1,11 @@
 class mwdevel_users::commons {
-  exec { 'enable-wheel-sudoers': command => "/bin/sed -i 's,#\s%wheel.*NOPASSWD: ALL,%wheel\t\tALL=(ALL)\tNOPASSWD: ALL,g' /etc/sudoers", 
+  class { 'sudo':
+    purge               => false,
+    config_file_replace => false,
+  }
+
+  sudo::conf { 'admins':
+    priority => 10,
+    content  => '%wheel ALL=(ALL) NOPASSWD: ALL',
   }
 }
