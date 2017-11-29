@@ -1,6 +1,6 @@
 [Test-CA] 
 name=Test-CA
-baseurl=http://radiohead.cnaf.infn.it:9999/job/repo_test_ca/lastSuccessfulBuild/artifact/yum/
+baseurl=https://jenkins.cloud.ba.infn.it/job/repo_test_ca/lastStableBuild/artifact/yum/
 protect=1
 enabled=1
 priority=1
