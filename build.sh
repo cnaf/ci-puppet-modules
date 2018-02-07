@@ -1,10 +1,10 @@
-!#/bin/bash
+#!/bin/bash
 
 set -xe
 
 ARTIFACTS_DIR=${ARTIFACTS_DIR:-"$PWD/../puppet_artifacts"}
 
-puppet=`which puppet`
+puppet="/opt/puppetlabs/bin/puppet"
 dirs=`ls modules`
 
 cd modules
