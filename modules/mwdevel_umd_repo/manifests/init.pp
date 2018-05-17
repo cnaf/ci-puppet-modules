@@ -1,5 +1,5 @@
 class mwdevel_umd_repo (
-  $umd_repo_version = 3,) {
+  $umd_repo_version = 4,) {
   case $umd_repo_version {
     3       : {
       case $lsbmajdistrelease {
