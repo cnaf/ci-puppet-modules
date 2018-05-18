@@ -16,7 +16,7 @@ class mwdevel_gpfs($version = "3.4.0-17") {
         $gpfs_packages: ensure => $version
     }
 
-    if $version == "4.2.0-3" {
+    if ($version == "4.2.0-3") or ($version =~ /^4.1.1/) {
       package {
           'gpfs.gskit': ensure => '8.0.50-47'
       }
