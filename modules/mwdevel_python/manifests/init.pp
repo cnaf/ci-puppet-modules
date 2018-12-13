@@ -1,5 +1,10 @@
 class mwdevel_python {
-  $python_packages = ['python', 'python-setuptools', 'python-pip']
+
+  if $lsbmajdistrelease == '7' {
+    $python_packages = ['python', 'python-setuptools', 'python2-pip']
+  } else {
+    $python_packages = ['python', 'python-setuptools', 'python-pip']
+  }
 
   package { $python_packages:
     ensure  => present,
