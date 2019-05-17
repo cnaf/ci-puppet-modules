@@ -5,7 +5,7 @@ A puppet module to configure EGI trust anchors YUM repository.
 ## Usage
 
 ```
-include egi-trust-anchors
+include mwdevel_egi_trust_anchors
 ```
 
 ## Required puppet modules
