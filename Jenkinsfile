@@ -1,7 +1,18 @@
 #!/usr/bin/env groovy
 
+@Library('sd')_
+def kubeLabel = getKubeLabel()
+
 pipeline {
-  agent { label 'generic' }
+
+  agent {
+    kubernetes {
+      label "${kubeLabel}"
+      cloud 'Kube mwdevel'
+      defaultContainer 'runner'
+      inheritFrom 'ci-template'
+    }
+  }
 
   options {
     timeout(time: 1, unit: 'HOURS')
@@ -18,12 +29,10 @@ pipeline {
           environment name: 'CHANGE_URL', value: ''
       }
       steps {
-      	container('generic-runner'){
-	        script {
-	          withSonarQubeEnv{
-	            def sonar_opts="-Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_AUTH_TOKEN}"
-	            sh "/opt/sonar-scanner/bin/sonar-scanner ${sonar_opts}"
-	          }
+        script {
+	        withSonarQubeEnv{
+	          def sonar_opts="-Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=${SONAR_AUTH_TOKEN}"
+	          sh "/opt/sonar-scanner/bin/sonar-scanner ${sonar_opts}"
 	        }
         }
       }
@@ -31,19 +40,15 @@ pipeline {
 
     stage('build') {
       steps {
-        container('generic-runner'){
-      	  sh "mkdir -p ${env.ARTIFACTS_DIR}"
-          sh "sh build.sh"
-        }
+    	  sh "mkdir -p ${env.ARTIFACTS_DIR}"
+        sh "sh build.sh"
       }
     }
     
     stage('archive') {
       steps {
-        container('generic-runner'){
-          dir("${env.ARTIFACTS_DIR}"){
-            archive '**'
-          }
+        dir("${env.ARTIFACTS_DIR}"){
+          archive '**'
         }
       }
     }
