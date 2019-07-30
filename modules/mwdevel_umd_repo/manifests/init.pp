@@ -16,13 +16,13 @@ class mwdevel_umd_repo (
     4       : {
       case $lsbmajdistrelease {
         '6'     : {
-          $umd_repo             = 'http://repository.egi.eu/sw/production/umd/4/sl6/x86_64/updates/umd-release-4.1.1-1.el6.noarch.rpm'
+          $umd_repo             = 'http://repository.egi.eu/sw/production/umd/4/sl6/x86_64/updates/umd-release-4.1.3-1.el6.noarch.rpm'
           $umd_repo_install_cmd = "yum install -y ${umd_repo}"
           $umd_repo_file        = '/etc/yum.repos.d/UMD-4-base.repo'
         }
 
         '7'     : {
-          $umd_repo             = 'http://repository.egi.eu/sw/production/umd/4/centos7/x86_64/updates/umd-release-4.1.1-1.el7.noarch.rpm'
+          $umd_repo             = 'http://repository.egi.eu/sw/production/umd/4/centos7/x86_64/updates/umd-release-4.1.3-1.el7.centos.noarch.rpm'
           $umd_repo_install_cmd = "yum install -y ${umd_repo}"
           $umd_repo_file        = '/etc/yum.repos.d/UMD-4-base.repo'
 
