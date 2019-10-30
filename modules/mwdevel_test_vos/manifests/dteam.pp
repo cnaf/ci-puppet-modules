@@ -1,3 +1,5 @@
+# @summary configure dteam
+#
 class mwdevel_test_vos::dteam {
   include mwdevel_voms
 

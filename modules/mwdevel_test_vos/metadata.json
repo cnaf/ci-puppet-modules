@@ -2,7 +2,7 @@
   "name": "mwdevel-mwdevel_test_vos",
   "version": "0.1.0",
   "author": "mwdevel",
-  "summary": null,
+  "summary": "Configure test VOs",
   "license": "Apache-2.0",
   "source": "https://github.com/cnaf/ci-puppet-modules",
   "project_page": "https://github.com/cnaf/ci-puppet-modules/projects",

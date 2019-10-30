@@ -1,3 +1,5 @@
+# @summary configure test.vo.2
+#
 class mwdevel_test_vos::test_vo_2 {
   include mwdevel_voms
 
@@ -7,12 +9,6 @@ class mwdevel_test_vos::test_vo_2 {
         port   => '15001',
         dn     => '/C=IT/O=INFN/OU=Host/L=CNAF/CN=vgrid02.cnaf.infn.it',
         ca_dn  => '/C=IT/O=INFN/CN=INFN Certification Authority',
-      },
-      {
-        server => 'voms.example',
-        port   => '15000',
-        dn     => '/C=IT/O=IGI/CN=voms.example',
-        ca_dn  => '/C=IT/O=IGI/CN=Test CA',
       }
     ],
   }
