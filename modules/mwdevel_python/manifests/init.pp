@@ -8,6 +8,5 @@ class mwdevel_python {
 
   package { $python_packages:
     ensure  => present,
-    require => Package['epel-release'],;
   }
 }
