@@ -2,7 +2,7 @@ class mwdevel_grinder {
 
   archive { 'grinder-3.11':
     ensure         => 'present',
-    url            => 'https://www.dropbox.com/s/2s974oqhyttgdjh/grinder-cnaf-3.11-binary.tar.gz',
+    url            => 'https://netix.dl.sourceforge.net/project/grinder/The%20Grinder%203/3.11/grinder-3.11-binary.zip',
     target         => '/opt',
     allow_insecure => true,
     checksum       => false,
