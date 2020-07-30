@@ -6,6 +6,7 @@ class mwdevel_grinder {
     target         => '/opt',
     allow_insecure => true,
     checksum       => false,
+    src_target     => '/tmp',
   }
 
   file { "/etc/profile.d/grinder.sh":
