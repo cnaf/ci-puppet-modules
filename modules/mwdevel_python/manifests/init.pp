@@ -1,6 +1,8 @@
+# @summary Install Python
 class mwdevel_python {
 
-  if $lsbmajdistrelease == '7' {
+  $el = $::operatingsystemmajrelease
+  if $el == '7' {
     $python_packages = ['python', 'python-setuptools', 'python2-pip']
   } else {
     $python_packages = ['python', 'python-setuptools', 'python-pip']

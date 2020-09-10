@@ -45,5 +45,7 @@ class mwdevel_umd_repo (
     onlyif  => "test ! -f ${umd_repo_file}",;
   }
 
-  package { 'epel-release': ensure => latest, }
+  package { 'epel-release':
+    ensure => latest,
+  }
 }
